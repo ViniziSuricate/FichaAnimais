@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="AtualizaFichaApp">
+<head>
+<meta charset="UTF-8">
+<title>Atualizar Ficha</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="atualizaFicha.js"></script>
+<link rel="stylesheet" href="base.css">
+</head>
+<body ng-controller="AtualizaFichaController">
+    <form id="formAtualizaFicha" method="get">
+        <h1>Atualizar Ficha {{Id}}</h1>
+        <div style="padding: 3%">
+            Id: <input type="text" ng-value="Id" name="dataFicha"  placeholder="Digite a data da ficha" style="margin-bottom: 20px" readonly><br/>
+            Data: <input type="text" ng-value="DataFicha" name="dataFicha"  placeholder="Digite a data da ficha" style="margin-bottom: 20px"><br/>
+            Obs:  <input type="text" ng-value="Obs" size="20" name="obsFicha"  placeholder="Digite observação" style="margin-bottom: 20px"><br/>
+            Status:  <label ng-repeat="sts in Status" for="sts"> {{sts}}
+                        <input type="radio" ng-model="StatusSelect.selected" ng-value="sts" id="sts" name="statusFichaSelect">
+                     </label>
+            <br/>
+            <br/>
+        </div>
+        <div>
+            <h4>Animais da Ficha</h4> 
+            <select multiple size="7" name="multipleSelectAnimal" id="multipleSelectAnimal" ng-model="animaisSelected.dataAnimais" ng-options="x.value as x.name for x in dataAnimais">
+            </select> 
+        </div>
+        <div>
+            <br/>
+            <input type="button" value="Salvar Ficha" ng-click="salvarFicha()" />
+            <input type="button" value="Voltar" onclick="voltarTelaInicial()" />
+        </div>
+    </form>
+</body>
+</html>

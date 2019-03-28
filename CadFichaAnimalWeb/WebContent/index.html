@@ -1,0 +1,108 @@
+<!doctype html>
+
+<html ng-app="ListaApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Tela Inicial - Cadastro de Fichas de Animais</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="base.css">
+    </head>
+	<body ng-controller="ListaController">
+    	<h1>Fichas</h1>
+    	
+    	<h4>Filtros</h4>
+    	<form id="formFiltro" method="post">
+	    	<div style='padding: 3%'>
+	      		Id: <input type="text" id="idFiltro" name="idFiltro" placeholder="Digite Id" style='margin-bottom: 20px'>
+	      		Data Inicial: <input type="text" id="dataInicialFiltro" name="dataInicialFiltro"  placeholder="Digite Data Inicial" style='margin-bottom: 20px'>
+	      		Data Final:   <input type="text" id="dataFinalFiltro" name="dataFinalFiltro"  placeholder="Digite Data Final" style='margin-bottom: 20px'>
+	      		<br/>
+	      		<input type="button" value="Filtrar" ng-click="filtraLista()" />
+	      		
+	       	</div>
+
+ 	  	<h4>Lista de Fichas <input class="btn-primary" type="submit" onclick="novaFicha()" value="Novo Regitro">  
+ 	  	                    <input class="btn-primary" type="submit" onclick="atualizaAnimais()" value="Atualizar Base Animais"></h4>
+
+			<div>
+				<table>
+				  <tr>
+				    <td>Id</td>
+				    <td>Data</td>
+				    <td>Status</td>
+				    <td></td>
+				    <td></td>
+				  </tr>
+				  <tr ng-repeat="x in listaFicha">
+				    <td>{{ x.id }}</td>
+				    <td>{{ x.data }}</td>
+				    <td>{{ x.status }}</td>
+				    <td><input type="button" value="Editar" ng-click="editarFichaLista(x.id)"/> </td>
+				    <td><input type="button" value="X" ng-click="deletarFichaLista(x.id)"/> </td>
+				  </tr>
+				</table>
+			</div>
+	    </form>
+	    <br/>
+	    
+	      
+ 	 </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  Codigo Exemplo
+<html ng-app="todoApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Tela Inicial Cadastro de Fichas de Animais</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="index.css">
+    </head>
+	<body ng-app="todoApp">
+    	<h1>Testando!</h1>
+    	<div style='padding: 3%'>
+      		<input type="text" ng-model="meuNome" placeholder="Digite um nome aqui..." style='margin-bottom: 20px'>
+      		<h1>Olá, {{ meuNome }}!</h1>
+    	</div>
+
+    	
+	    <h2>Todo!</h2>
+	    <div ng-controller="TodoListController as todoList">
+	      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+	      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+	      <ul class="unstyled">
+	        <li ng-repeat="todo in todoList.todos">
+	          <label class="checkbox">
+	            <input type="checkbox" ng-model="todo.done">
+	            <span class="done-{{todo.done}}">{{todo.text}}</span>
+	          </label>
+	        </li>
+	      </ul>
+	      <form ng-submit="todoList.addTodo()">
+	        <input type="text" ng-model="todoList.todoText" size="30" placeholder="add new todo here">
+	        <input class="btn-primary" type="submit" value="add">
+	      </form>
+	    </div>
+	    
+ 	 </body>
+</html>
+
+-->

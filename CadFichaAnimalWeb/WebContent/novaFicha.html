@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="CadFichaApp">
+<head>
+<meta charset="UTF-8">
+<title>Incluir Ficha</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="novaFicha.js"></script>
+<link rel="stylesheet" href="base.css">
+</head>
+<body ng-controller="CadFichaController">
+    <form id="formNovaFicha" method="post">
+        <h1>Incluir nova Ficha</h1>
+        <div style="padding: 3%">
+            Id: <input type="text" name="idFiha" placeholder="Gerado automático pelo sistema" style="margin-bottom: 20px" readonly><br/>
+            Data: <input type="text" name="dataFicha"  placeholder="Criado na Data de Hoje" style="margin-bottom: 20px"> readonly<br/>
+            Obs:  <input type="text" size="20" id="obsFicha" name="obsFicha"  placeholder="Digite observação" style="margin-bottom: 20px"><br/>
+            Status:  <input type="radio" id="Ativo" name="statusFicha" checked readonly> <label for="Ativo">Ativo</label> / <input type="radio" id="Inativo" name="statusFicha"> <label for="Inativo">Inativo</label><br/>
+            <br/>
+        </div>
+        <div>
+            <h4>Selecione Animais</h4>  
+            <select size="7" name="multipleSelectAnimal" id="multipleSelectAnimal" ng-model="data.model" multiple>
+                <option ng-repeat="option in data.availableOptions" value="option.value">{{option.name}}</option>
+            </select>   
+
+        </div>
+        <div>
+            <br/>
+            <input type="button" value="Incluir Ficha" ng-click="incluirFicha()" />
+            <input type="button" value="Voltar" onclick="voltarTelaInicial()" />
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html ng-app="AtualizaAnimaisApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Atualiza Animais</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="atualizaAnimais.js"></script>
+        <link rel="stylesheet" href="base.css">
+    </head>
+	<body ng-controller="AtualizaAniaisController">
+        <form id="formAtulizaAnimais">
+    	    <h1>Atualiza Animais</h1>
+			<div>
+				<table>
+				  <tr>
+				    <td>Id</td>
+				    <td>Código</td>
+				    <td>Descrição</td>
+				    <td></td>
+				  </tr>
+				  <tr ng-repeat="x in listaAnimal">
+				    <td><input type="text" ng-value="x.Id" name="Id" style="margin-bottom: 20px" readonly><br/></td>
+				    <td><input type="text" ng-value="x.Cod" name="dataFicha"  placeholder="Digite um Código" style="margin-bottom: 20px"></td>
+				    <td><input type="text" ng-value="x.Nome" name="dataFicha"  placeholder="Digite uma descrição " style="margin-bottom: 20px"></td>
+				    <td><input type="button" value="Atualizar" ng-click="atualizaAnimal(x.Id, x.Cod, x.Nome)"/> </td>
+				  </tr>
+				</table>
+			</div>
+	    </form>
+	    <br/>
+	    
+	      
+ 	 </body>
+</html>
