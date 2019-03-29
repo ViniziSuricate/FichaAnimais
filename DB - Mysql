@@ -3,6 +3,15 @@ CREATE DATABASE IF NOT EXISTS DBFichaAnimal;
  
 USE DBFichaAnimal;
 
+CREATE TABLE `DBFichaAnimal`.`tb_Ficha` (
+  `id_Ficha` INT NOT NULL AUTO_INCREMENT,
+  `dtCat_Ficha` DATE NULL,
+  `cdStatus_Ficha` VARCHAR(1) NULL,
+  `txtObs_Ficha` VARCHAR(200) NULL,
+  PRIMARY KEY (`id_Ficha`),
+  INDEX `dt_Fichas_Interval` (`dtCat_Ficha` ASC) VISIBLE,
+  UNIQUE INDEX `id_Ficha_UNIQUE` (`id_Ficha` ASC) VISIBLE);
+
 CREATE TABLE `DBFichaAnimal`.`tb_Animal` (
   `id_Seq` INT NOT NULL AUTO_INCREMENT,
   `id_Animal` VARCHAR(5) NULL,
