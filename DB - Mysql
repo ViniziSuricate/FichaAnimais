@@ -1,1 +1,19 @@
 
+CREATE DATABASE IF NOT EXISTS DBFichaAnimal;
+ 
+USE DBFichaAnimal;
+
+CREATE TABLE `DBFichaAnimal`.`tb_Animal` (
+  `id_Seq` INT NOT NULL AUTO_INCREMENT,
+  `id_Animal` VARCHAR(5) NULL,
+  `txt_NomeAnimal` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_Seq`),
+  UNIQUE INDEX `id_Animal_UNIQUE` (`id_Animal` ASC) VISIBLE);
+
+CREATE TABLE `DBFichaAnimal`.`tb_AnimaisFicha` (
+  `id_AnimaisFicha` INT NOT NULL AUTO_INCREMENT,
+  `idFicha_AnimaisFicha` INT NOT NULL,
+  `idAnimal_AnimaisFicha` INT NOT NULL,
+  PRIMARY KEY (`id_AnimaisFicha`),
+  INDEX `id_AnimaisFicha_UNIQUE` USING BTREE (`idFicha_AnimaisFicha`) VISIBLE);
+
